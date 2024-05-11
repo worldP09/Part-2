@@ -142,3 +142,11 @@ class RecipeManager
     public delegate void RecipeExceedsCaloriesHandler(string recipeName);
     public event RecipeExceedsCaloriesHandler RecipeExceedsCalories;
 }
+/// <summary>
+/// class to represent a recipe
+/// </summary>
+class Recipe 
+{
+    public string Name { get; set; }
+    public List<Ingredient> Ingredients{get; set; } = new List<Ingredient>(); 
+}
