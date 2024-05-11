@@ -95,3 +95,18 @@ class RecipeManager
     }
 
 }
+//Method to scale the recipe by a factor
+public void ScaleRecipe()
+{
+    Console.WriteLine("\nEnter scaling factor (0.5, 2 or 3: ");
+    double factor = Double.Parse(Console.ReadLine());
+
+    foreach (var recipe in recipe)
+    {
+        foreach(var ingredient in recipe.Ingredients)
+        {
+            ingredient.Quantity *= factor;
+        }
+    }
+    Console.WriteLine("Recipe(s) scaled successfully.");
+    }
