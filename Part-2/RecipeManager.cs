@@ -1,5 +1,6 @@
 
-
+using System;
+using System.Collections.Generic;
 class RecipeManager 
 {
     //list to store ricipes
@@ -47,7 +48,7 @@ class RecipeManager
 
             //add the ingredient to the recipe 
             recipe.Ingredients.Add(ingredient);
-            }
+        }
 
             //add the recipe to the list of recipes
             recipes.Add(recipe);
@@ -68,36 +69,38 @@ class RecipeManager
     }
   //method to select and display a specific recipe
   public void SelectRecipe()
-  { Console.WriteLine("\nSelect a recipe: ");
-  DisplayAllRecipe();
-  Console.Write("Enter recipe name: ");
-  string recipeName = Console.ReadLine();
+  { 
+        Console.WriteLine("\nSelect a recipe: ");
+        DisplayAllRecipe();
+        Console.Write("Enter recipe name: ");
+        string recipeName = Console.ReadLine();
+        //check if the entered recipe exists in the list of recipes
+        Recipe selectedRecipe = recipes.Find(r => r.Name == recipeName);
+        if (selectedRecipe != null)
+        {
+            Console.WriteLine($"\nSelected Recipe: {selectedRecipe.Name}");
+            Console.WriteLine($"Ingredients: ");
 
-  Recipe selectedRecipe = recipes.Find(r => r.Name == recipeName);
-  if (selectedRecipe != null)
-  {
-    Console.WriteLine($"\nSelected Recipe: {selectedRecipe.Name}");
-    Console.WriteLine($"Ingredients: ");
+            foreach (var ingredient in selectedRecipe.Ingredients)
+            {
+            Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}")
+            }
+        
+            int totalCalories = CalculateTotalCalories(selectedRecipe);
+            Console.WriteLine($"Total Calories: {totalCalories}");
 
-    foreach (var ingredient in selectedRecipe.Ingredients)
-    {Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}")}
-  }
-  int totalCalories = CalculateTotalCalories(selectedRecipe);
-  Console.WriteLine($"Total Calories: {totalCalories}");
-
-  if (totalCalories > 300)
-  {
-    RRecipeExceedsCalories?.Invoke(selectedRecipe.Name);
-    
-     }
-  }
-    else
-    {
+            if (totalCalories > 300)
+            {
+                RecipeExceedsCalories?.Invoke(selectedRecipe.Name);
+            }
+        }
+        else
+        {
         Console.WriteLine("Recipe not found.");
+        }
     }
-}
 
-//Method to scale the recipe by a factor
+    //Method to scale the recipe by a factor
     public void ScaleRecipe()
     {
         Console.WriteLine("\nEnter scaling factor (0.5, 2 or 3: ");
