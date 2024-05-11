@@ -103,7 +103,7 @@ class RecipeManager
         Console.WriteLine("\nEnter scaling factor (0.5, 2 or 3: ");
         double factor = Double.Parse(Console.ReadLine());
 
-        foreach (var recipe in recipe)
+        foreach (var recipe in recipes)
         {
             foreach(var ingredient in recipe.Ingredients)
                 {
