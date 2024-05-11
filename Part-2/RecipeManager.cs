@@ -136,7 +136,7 @@ class RecipeManager
         int totalCalories = 0;
         foreach (var ingredient in recipe.Ingredients)
         {
-            totalCalories += ingredient.Calories * ingredient.Quantity;
+            totalCalories += ingredient.Calories;
         }
         return totalCalories;
     }
