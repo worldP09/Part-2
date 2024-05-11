@@ -159,3 +159,4 @@ class Ingredient
     public int Calories {get; set; }
     public string FoodGroup {get; set; }
 }
+
