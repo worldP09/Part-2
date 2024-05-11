@@ -1,3 +1,5 @@
+
+
 class RecipeManager 
 {
     //list to store ricipes
@@ -71,7 +73,7 @@ class RecipeManager
   Console.Write("Enter recipe name: ");
   string recipeName = Console.ReadLine();
 
-  RecipeManager selectedRecipe = recipeName.Find(r => r.Name == recipeName);
+  Recipe selectedRecipe = recipes.Find(r => r.Name == recipeName);
   if (selectedRecipe != null)
   {
     Console.WriteLine($"\nSelected Recipe: {selectedRecipe.Name}");
