@@ -55,4 +55,15 @@ class RecipeManager
 
     }
 
+    //method to display all recipes
+    public void DisplayAllRecipe()
+    {
+        Console.WriteLine("\nAll Recipe: ");
+        foreach (var recipe in recipes)
+        {
+            Console.WriteLine(recipe.Name)
+        }
+    }
+    
+
 }
