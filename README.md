@@ -5,7 +5,7 @@ Instructions
 How to Compile and Run the Software
 Clone the Repository: 
 Clone this GitHub repository to your local machine using the following command:
-git clone https://github.com/your-username/recipe-manager.git
+git clone [https://github.com/your-username/recipe-manager.git](https://github.com/worldP09/Part-2.git)
 Navigate to the Directory: 
 Use the cd command to navigate into the cloned repository directory:
 cd recipe-manager
