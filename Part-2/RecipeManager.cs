@@ -126,7 +126,7 @@ class RecipeManager
     public void ClearAllData()
     {
         Recipes.Clear();
-        originalReccipe.Clear();
+        originalRecipe.Clear();
         Console.WriteLine("All data cleared.");
     }
 
