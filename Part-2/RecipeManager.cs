@@ -63,7 +63,7 @@ class RecipeManager
         Console.WriteLine("\nAll Recipe: ");
         foreach (var recipe in recipes)
         {
-            Console.WriteLine(recipe.Name)
+            Console.WriteLine(recipe.Name);
         }
     }
   //method to select and display a specific recipe
@@ -119,7 +119,7 @@ class RecipeManager
     {
         //restore original recipe
         RecipeManager.Clear();
-        recipes.AddRange(originalRecipe);
+        recipes.AddRange(originalRecipes);
         Console.WriteLine("Quantities reset to original  values.");
     }
     // Method to clear all entered recipe data to allow entering a new recipe 
