@@ -64,6 +64,34 @@ class RecipeManager
             Console.WriteLine(recipe.Name)
         }
     }
+  //method to select and display a specific recipe
+  public void SelectRecipe()
+  { Console.WriteLine("\nSelect a recipe: ");
+  DisplayAllRecipe();
+  Console.Write("Enter recipe name: ");
+  string recipeName = Console.ReadLine();
+
+  RecipeManager selectedRecipe = recipeName.Find(r => r.Name == recipeName);
+  if (selectedRecipe != null)
+  {
+    Console.WriteLine($"\nSelected Recipe: {selectedRecipe.Name}");
+    Console.WriteLine($"Ingredients: ");
+
+    foreach (var ingredient in selectedRecipe.Ingredients)
+    {Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}")}
+  }
+  int totalCalories = CalculateTotalCalories(selectedRecipe);
+  Console.WriteLine($"Total Calories: {totalCalories}");
+
+  if (totalCalories > 300)
+  {
+    RRecipeExceedsCalories?.Invoke(selectedRecipe.Name);
     
+     }
+  }
+    else
+    {
+        Console.WriteLine("Recipe not found.");
+    }
 
 }
