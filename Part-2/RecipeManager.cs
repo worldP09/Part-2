@@ -128,5 +128,17 @@ class RecipeManager
         Console.WriteLine("All data cleared.");
     }
 
-    //
+    //method to calculate total calories of a recipe
+    private int CalculateTotalCalories(Recipe recipe)
+    {
+        int totalCalories = 0;
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            totalCalories += ingredient.Calories * ingredient.Quantity;
+        }
+        return totalCalories;
+    }
+    //Delegate and event to notify when a recipe exceeds 300 calories
+    public delegate void RecipeExceedsCaloriesHandler(string recipeName);
+    public event RecipeExceedsCaloriesHandler RecipeExceedsCalories;
 }
