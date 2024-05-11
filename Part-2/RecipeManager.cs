@@ -120,5 +120,13 @@ class RecipeManager
         recipes.AddRange(originalRecipe);
         Console.WriteLine("Quantities reset to original  values.");
     }
-    
+    // Method to clear all entered recipe data to allow entering a new recipe 
+    public void ClearAllData()
+    {
+        Recipes.Clear();
+        originalReccipe.Clear();
+        Console.WriteLine("All data cleared.");
+    }
+
+    //
 }
