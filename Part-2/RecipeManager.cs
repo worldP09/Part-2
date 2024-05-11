@@ -83,7 +83,7 @@ class RecipeManager
 
             foreach (var ingredient in selectedRecipe.Ingredients)
             {
-            Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}")
+            Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}");
             }
         
             int totalCalories = CalculateTotalCalories(selectedRecipe);
