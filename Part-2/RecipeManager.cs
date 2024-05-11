@@ -5,6 +5,54 @@ class RecipeManager
     //Store oringinal recipe for resetting quantities 
     private List<Recipe> originalRecipes = new List<Recipe>();
 
+    //method to enter details of a new recipe 
+    public void EnterRecipeDetails()
+    {
+        Recipe recipe = new Recipe();
 
+        //prompt user to enter reccipe name 
+        Console.WriteLine("Enter Recipe Name: ");
+        recipe.Name = Console.ReadLine();
+
+        //Prompt user to enter number of ingredients
+        Console.WriteLine("Enter number of ingredients: ");
+        int ingredientCount =int.Parse(Console.ReadLine());
+        
+        //loop to enter details of each ingredient
+        for (int i = 0; i < ingredientCount; i++)
+        {
+            Ingredient ingredient = new Ingredient();
+
+            //prompt user to enter name of the ingredient 
+            Console.WriteLine($"Enter Name of Ingredient {i+1}: ");
+            ingredient.Name = Console.ReadLine();
+
+            //prompt user to enter quantity of the ingredient 
+            Console.WriteLine($"Enter Quantity of {ingredient.name}: ");
+            ingredient.Quantity = double.Parse(Console.ReadLine()); 
+
+            //Prompt the user to enter unit of measurement for the ingredient
+            Console.WriteLine($"Enter unit of measurement for {ingredient.Name}: ");
+            ingredient.Unit = Console.ReadLine();
+
+            //Prompt user to enter number of calories for the ingredient
+            Console.WriteLine($"Enter number of calories for {ingredient.Name}: ");
+            ingredient.Calories = int.Parse(Console.ReadLine());
+
+            // Promt user to enter food group for the ingredient
+            Console.WriteLine($"Enter food group for {ingredient.Name}: ");
+            ingredient.FoodGroup = Console.ReadLine();
+
+            //add the ingredient to the recipe 
+            recipe.Ingredients.Add(ingredient);
+            }
+
+            //add the recipe to the list of recipes
+            recipes.Add(recipe);
+            //store original recipe for resetting quantities 
+            originalRecipes.add(recipe);
+            Console.WriteLine("Recipe details added successfully!");
+
+    }
 
 }
