@@ -95,7 +95,7 @@ class RecipeManager
     {
         Console.WriteLine("Recipe not found.");
     }
-
+}
 
 //Method to scale the recipe by a factor
     public void ScaleRecipe()
