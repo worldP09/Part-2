@@ -94,19 +94,31 @@ class RecipeManager
         Console.WriteLine("Recipe not found.");
     }
 
-}
-//Method to scale the recipe by a factor
-public void ScaleRecipe()
-{
-    Console.WriteLine("\nEnter scaling factor (0.5, 2 or 3: ");
-    double factor = Double.Parse(Console.ReadLine());
 
-    foreach (var recipe in recipe)
+//Method to scale the recipe by a factor
+    public void ScaleRecipe()
     {
-        foreach(var ingredient in recipe.Ingredients)
+        Console.WriteLine("\nEnter scaling factor (0.5, 2 or 3: ");
+        double factor = Double.Parse(Console.ReadLine());
+
+        foreach (var recipe in recipe)
         {
-            ingredient.Quantity *= factor;
+            foreach(var ingredient in recipe.Ingredients)
+                {
+                ingredient.Quantity *= factor;
+                }
         }
+        Console.WriteLine("Recipe(s) scaled successfully.");
+
     }
-    Console.WriteLine("Recipe(s) scaled successfully.");
+
+    //Method to reset ingredient quantities to their original values
+    public void ResetQuantities()
+    {
+        //restore original recipe
+        RecipeManager.Clear();
+        recipes.AddRange(originalRecipe);
+        Console.WriteLine("Quantities reset to original  values.");
     }
+    
+}
