@@ -4,7 +4,7 @@ using System.Collections.Generic;
 class RecipeManager 
 {
     //list to store ricipes
-    private list<Recipe> recipes =new list<Recipe>();
+    private List<Recipe> recipes =new List<Recipe>();
     //Store oringinal recipe for resetting quantities 
     private List<Recipe> originalRecipes = new List<Recipe>();
 
@@ -163,5 +163,5 @@ class Ingredient
     public string Unit {get; set; }
     public int Calories {get; set; }
     public string FoodGroup {get; set; }
-}
+};
 
