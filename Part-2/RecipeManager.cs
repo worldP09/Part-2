@@ -150,3 +150,12 @@ class Recipe
     public string Name { get; set; }
     public List<Ingredient> Ingredients{get; set; } = new List<Ingredient>(); 
 }
+//Class to represent an ingredient 
+class Ingredient
+{
+    public string Name { get; set; }
+    public double Quantity {get; set;}
+    public string Unit {get; set; }
+    public int Calories {get; set; }
+    public string FoodGroup {get; set; }
+}
