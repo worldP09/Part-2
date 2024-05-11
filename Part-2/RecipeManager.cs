@@ -31,7 +31,7 @@ class RecipeManager
             ingredient.Name = Console.ReadLine();
 
             //prompt user to enter quantity of the ingredient 
-            Console.WriteLine($"Enter Quantity of {ingredient.name}: ");
+            Console.WriteLine($"Enter Quantity of {ingredient.Name}: ");
             ingredient.Quantity = double.Parse(Console.ReadLine()); 
 
             //Prompt the user to enter unit of measurement for the ingredient
@@ -53,7 +53,7 @@ class RecipeManager
             //add the recipe to the list of recipes
             recipes.Add(recipe);
             //store original recipe for resetting quantities 
-            originalRecipes.add(recipe);
+            originalRecipes.Add(recipe);
             Console.WriteLine("Recipe details added successfully!");
 
     }
@@ -121,15 +121,15 @@ class RecipeManager
     public void ResetQuantities()
     {
         //restore original recipe
-        RecipeManager.Clear();
-        recipes.AddRange(originalRecipes);
+        
+        recipes.Clear();
         Console.WriteLine("Quantities reset to original  values.");
     }
     // Method to clear all entered recipe data to allow entering a new recipe 
     public void ClearAllData()
     {
-        Recipes.Clear();
-        originalRecipe.Clear();
+        recipes.Clear();
+        originalRecipes.Clear();
         Console.WriteLine("All data cleared.");
     }
 

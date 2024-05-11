@@ -38,7 +38,7 @@ namespace Recipeapp
                     break;
                     case "2":
                     // call method to display all recipes
-                    recipeManager.DisplayAllRecipes();
+                    recipeManager.DisplayAllRecipe();
                     break;
                     case "3":
                     // Call method to select and display a specific recipe
@@ -63,7 +63,7 @@ namespace Recipeapp
                     break;
                     default:
                     Console.WriteLine("Invalid Choice! Please try again.");
-                    break
+                    break;
                 }
 
             }
