@@ -76,38 +76,28 @@ class RecipeManager
     }
 }
   //method to select and display a specific recipe
-  public void SelectRecipe()
-  { 
-        Console.WriteLine("\nSelect a recipe: ");
-        DisplayAllRecipe();
-        Console.Write("Enter recipe name: ");
-        string recipeName = Console.ReadLine();
-        //check if the entered recipe exists in the list of recipes
-        Recipe selectedRecipe = recipes.Find(r => r.Name == recipeName);
-        if (selectedRecipe != null)
+  public void SelectRecipe(Recipe recipe)
         {
-            Console.WriteLine($"\nSelected Recipe: {selectedRecipe.Name}");
-            Console.WriteLine($"Ingredients: ");
-
-            foreach (var ingredient in selectedRecipe.Ingredients)
+            if (recipe != null)
             {
-            Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}");
+                Console.WriteLine($"\nSelected Recipe: {recipe.Name}");
+                Console.WriteLine($"Ingredients: ");
+                foreach (var ingredient in recipe.Ingredients)
+                {
+                    Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}, Calories: {ingredient.Calories}, Food Group: {ingredient.FoodGroup}");
+                }
+                int totalCalories = CalculateTotalCalories(recipe);
+                Console.WriteLine($"Total Calories: {totalCalories}");
+                if (totalCalories > 300)
+                {
+                    RecipeExceedsCalories?.Invoke(recipe.Name);
+                }
             }
-        
-            int totalCalories = CalculateTotalCalories(selectedRecipe);
-            Console.WriteLine($"Total Calories: {totalCalories}");
-
-            if (totalCalories > 300)
+            else
             {
-                RecipeExceedsCalories?.Invoke(selectedRecipe.Name);
+                Console.WriteLine("Recipe not found.");
             }
         }
-        else
-        {
-        Console.WriteLine("Recipe not found.");
-        }
-    }
-
     //Method to scale the recipe by a factor
     public void ScaleRecipe()
     {
