@@ -58,13 +58,23 @@ class RecipeManager
 
     //method to display all recipes
     public void DisplayAllRecipe()
+{
+    Console.WriteLine("\nAll Recipes: ");
+
+    // Sort recipes by name using LINQ
+    var sortedRecipes = recipes.OrderBy(r => r.Name);
+
+    foreach (var recipe in sortedRecipes)
     {
-        Console.WriteLine("\nAll Recipe: ");
-        foreach (var recipe in recipes)
+        Console.WriteLine($"Recipe Name: {recipe.Name}");
+        Console.WriteLine("Ingredients: ");
+        foreach (var ingredient in recipe.Ingredients)
         {
-            Console.WriteLine(recipe.Name);
+            Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity} {ingredient.Unit}, Calories: {ingredient.Calories}, Food Group: {ingredient.FoodGroup}");
         }
+        Console.WriteLine(); // Add a blank line for better readability
     }
+}
   //method to select and display a specific recipe
   public void SelectRecipe()
   { 
